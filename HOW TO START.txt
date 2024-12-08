@@ -1,0 +1,46 @@
+How to Start the Realtor.ca Listings Scraper
+Follow these steps to quickly run the scraper and extract real estate data.
+
+ //Step 1: Start Microsoft Edge in Debugging Mode
+Open Command Prompt.
+Copy and paste the following command to start Microsoft Edge:
+bash
+Copy code
+
+Keep Microsoft Edge open while the scraper runs.
+
+ //Step 2: Run the Scraper
+Open Command Prompt in the program directory:
+bash
+Copy code
+
+cd C:\Realtor.ca\realtorca-master
+
+Start the scraper by running:
+bash
+Copy code
+
+node fetchListingsPuppeteer.js
+
+ //Step 3: Check the Output
+The scraped data will be saved as listings.csv in:
+plaintext
+Copy code
+C:\Realtor.ca\realtorca-master
+If a file with the same name already exists, a new file will be created, such as:
+listings1.csv
+listings2.csv
+Example Workflow (Copy and Paste)
+Open Command Prompt.
+Start Microsoft Edge:
+bash
+Copy code
+"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" --remote-debugging-port=9222 --user-data-dir="C:\Realtor.ca\realtorca-master\user-data"
+In a new Command Prompt window:
+bash
+Copy code
+cd C:\Realtor.ca\realtorca-master
+node fetchListingsPuppeteer.js
+Notes
+Keep Edge Open: The scraper relies on the browser being open.
+Scraper Delays: The scraper waits for pages to load, so don’t worry if it seems slow.
