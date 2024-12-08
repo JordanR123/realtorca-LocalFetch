@@ -1,3 +1,12 @@
+This script is designed to scrape real estate listings from Realtor.ca using Puppeteer. It connects to an existing browser session through a debugging port, enabling the reuse of local user data, cookies, and preferences. This approach eliminates the need to launch a new browser instance and allows manual pre-scraping interactions, such as logging in if required. Once connected, the script navigates to the provided Realtor.ca URL and dynamically determines the total number of pages to scrape by extracting the pagination count using an XPath query. Depending on the configuration, it can scrape either all available pages or limit itself to the first two.
+
+The script opens each page in a new browser tab with a slight delay between each to avoid server overload. It retrieves data from the listings on each page, extracting key details such as price, square footage, address, and a link to the property. To ensure the links are usable, it constructs absolute URLs by appending the base domain (https://www.realtor.ca) to the relative href attributes found in the anchor tags. The data is organized into objects containing the price, square footage, street, city, province, and link for each listing. It applies a filter to include only properties with a minimum square footage of 1,800, ensuring the results meet predefined criteria.
+
+Once all the data has been collected, the script formats it into a CSV file. It begins with a header row and escapes values appropriately for compatibility. The file is saved locally in the script’s directory with a unique filename to avoid overwriting previous results. If any issues occur during scraping, the script logs errors and continues to process the remaining listings or pages, ensuring robustness and continuity.
+
+This scraper is particularly useful for real estate investors, agencies, or researchers looking to quickly gather property data for analysis. By connecting to an active browser session, it can handle websites that require authentication or specific user data. Additionally, the script's dynamic handling of pagination and filtering capabilities make it adaptable to a variety of use cases, such as analyzing market trends or gathering targeted property information. It provides a highly automated yet customizable solution for scraping and saving real estate listings locally.
+
+
 # realtorca       
 [![NPM](https://nodei.co/npm/realtorca.png)](https://npmjs.org/package/realtorca)
 
